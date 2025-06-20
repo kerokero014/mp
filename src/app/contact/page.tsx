@@ -1,16 +1,24 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Typography, TextField, Button, Box } from '@mui/material';
 import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 import { contactform } from './style';
 import { AuroraBackground } from '../components/ui/aurora-background';
-import Lottie from 'lottie-react';
-import successAnim from '../../../public/Animation - 1745539320690.json';
+import dynamic from 'next/dynamic';
+
+const SuccessLottie = dynamic(() => import('../components/ui/SuccessLottie'), {
+  ssr: false,
+});
 
 export default function ContactPage() {
   const formRef = useRef<HTMLFormElement>(null);
   const [success, setSuccess] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,10 +26,10 @@ export default function ContactPage() {
 
     emailjs
       .sendForm(
-        'your_service_id', // replace with your EmailJS service ID
-        'your_template_id', // replace with your template ID
+        process.env.NEXT_PUBLIC_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID!,
         formRef.current,
-        'your_public_key' // replace with your public key
+        process.env.NEXT_PUBLIC_PUBLIC_KEY!
       )
       .then(() => {
         setSuccess(true);
@@ -31,6 +39,8 @@ export default function ContactPage() {
         console.error('Email send error:', err);
       });
   };
+
+  if (!hasMounted) return null;
 
   return (
     <AuroraBackground>
@@ -73,7 +83,7 @@ export default function ContactPage() {
               <TextField
                 sx={contactform.textField}
                 label="Message"
-                name="message"
+                name="title"
                 variant="outlined"
                 required
                 multiline
@@ -98,11 +108,7 @@ export default function ContactPage() {
                 transition={{ type: 'spring', duration: 0.6 }}
                 className="absolute top-10"
               >
-                <Lottie
-                  animationData={successAnim}
-                  loop={false}
-                  style={{ width: 150, height: 150 }}
-                />
+                <SuccessLottie />
               </motion.div>
             )}
           </AnimatePresence>
@@ -111,5 +117,3 @@ export default function ContactPage() {
     </AuroraBackground>
   );
 }
-
-// ! TODO: Make the form work with emailjs and test it
