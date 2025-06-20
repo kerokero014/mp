@@ -8,15 +8,15 @@ export const contactform = {
   textField: {
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: '#E9E9EC',
+        borderColor: '#686878',
         color: '#18181B',
       },
       '&:hover fieldset': {
-        borderColor: '#3F51B5',
+        borderColor: '#686878',
         color: '#18181B',
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#E9E9EC',
+        borderColor: '#686878',
         color: '#18181B',
       },
     },
@@ -27,11 +27,11 @@ export const contactform = {
   button: {
     backgroundColor: '#696977',
     '&:hover': {
-      backgroundColor: '#565661',
+      backgroundColor: '#4D4D56',
     },
   },
   box: {
-    backgroundColor: '#93939F',
+    backgroundColor: '#ffffffe0',
     padding: '20px',
     borderRadius: '8px',
     display: 'flex',
