@@ -2,14 +2,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Typography, TextField, Button, Box } from '@mui/material';
 import emailjs from '@emailjs/browser';
-import { motion, AnimatePresence } from 'framer-motion';
 import { contactform } from './style';
 import { AuroraBackground } from '../components/ui/aurora-background';
-import dynamic from 'next/dynamic';
-
-const SuccessLottie = dynamic(() => import('../components/ui/SuccessLottie'), {
-  ssr: false,
-});
+// import dynamic from 'next/dynamic';
+import SuccessModal from '../components/ui/SuccessModal'; // adjust path as needed
 
 export default function ContactPage() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -97,21 +93,7 @@ export default function ContactPage() {
               </Box>
             </form>
           </Box>
-
-          <AnimatePresence>
-            {success && (
-              <motion.div
-                key="successAnimation"
-                initial={{ opacity: 0, scale: 0.5, y: -50 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8, y: -20 }}
-                transition={{ type: 'spring', duration: 0.6 }}
-                className="absolute top-10"
-              >
-                <SuccessLottie />
-              </motion.div>
-            )}
-          </AnimatePresence>
+          <SuccessModal open={success} onClose={() => setSuccess(false)} />
         </main>
       </div>
     </AuroraBackground>
