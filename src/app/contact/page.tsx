@@ -43,8 +43,8 @@ export default function ContactPage() {
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full max-w-xl">
           <Typography
-            variant="h1"
-            className="text-center sm:text-left w-full text-4xl sm:text-5xl font-bold text-[#E9E9EC]"
+            variant="h2"
+            className="text-center sm:text-left w-full text-xl md:text-2xl sm:text-5xl font-bold text-[#E9E9EC]"
           >
             Contact Me
           </Typography>
