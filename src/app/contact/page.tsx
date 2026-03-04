@@ -53,8 +53,7 @@ export default function ContactPage() {
             variant="h6"
             className="text-center sm:text-left w-full text-lg sm:text-xl font-medium text-[#E9E9EC]"
           >
-            Whether you have a question, a project idea, or just want to connect — shoot me a
-            message!
+            Whether you have a question, a project idea, or just want to connect — send me an email!
           </Typography>
 
           <Box sx={contactform.box} className="flex flex-col gap-4 w-full">

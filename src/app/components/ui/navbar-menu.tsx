@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import { cn } from '../../lib/utils';
 
 export const Menu = ({
   children,
@@ -45,12 +46,20 @@ export const ProductItem = ({
 
 export const HoveredLink = ({
   children,
+  active = false,
+  className,
   ...rest
-}: React.ComponentProps<'a'>) => {
+}: React.ComponentProps<'a'> & { active?: boolean }) => {
   return (
     <a
       {...rest}
-      className="rounded-full px-3 py-1.5 text-sm font-medium text-neutral-800 dark:text-neutral-100"
+      className={cn(
+        'rounded-full border border-transparent px-3 py-1.5 text-sm font-medium text-neutral-800 transition-all duration-200',
+        'hover:border-black/10 hover:bg-white/45 hover:backdrop-blur-md dark:text-neutral-100 dark:hover:border-white/20 dark:hover:bg-white/10',
+        active &&
+          'border-black/15 bg-white/60 shadow-sm shadow-black/10 backdrop-blur-md dark:border-white/25 dark:bg-white/15 dark:shadow-black/35',
+        className
+      )}
     >
       {children}
     </a>
