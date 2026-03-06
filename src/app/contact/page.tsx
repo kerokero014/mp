@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Typography, TextField, Button, Box } from '@mui/material';
 import emailjs from '@emailjs/browser';
 import { contactform } from './style';
-import { AuroraBackground } from '../components/ui/aurora-background';
 // import dynamic from 'next/dynamic';
 import SuccessModal from '../components/ui/SuccessModal'; // adjust path as needed
 
@@ -39,7 +38,7 @@ export default function ContactPage() {
   if (!hasMounted) return null;
 
   return (
-    <AuroraBackground>
+    <>
       <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full max-w-xl">
           <Typography
@@ -95,6 +94,6 @@ export default function ContactPage() {
           <SuccessModal open={success} onClose={() => setSuccess(false)} />
         </main>
       </div>
-    </AuroraBackground>
+    </>
   );
 }

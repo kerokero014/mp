@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { cn } from '../../lib/utils';
+import Image from 'next/image';
 
 export const Menu = ({
   children,
@@ -27,7 +28,7 @@ export const ProductItem = ({
 }) => {
   return (
     <a href={href} className="flex space-x-2">
-      <img
+      <Image
         src={src}
         width={140}
         height={70}

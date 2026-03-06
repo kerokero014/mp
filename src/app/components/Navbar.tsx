@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import { usePathname } from 'next/navigation';
 import { HoveredLink, Menu } from './ui/navbar-menu';
 import { cn } from '../lib/utils';
 
@@ -13,24 +12,22 @@ export function NavbarDemo() {
 }
 
 function Navbar({ className }: { className?: string }) {
-  const pathname = usePathname();
-
   return (
     <div className={cn('fixed top-10 inset-x-0 max-w-2xl mx-auto z-50', className)}>
       <Menu>
-        <HoveredLink href="/" active={pathname === '/'}>
+        <HoveredLink href="/#home">
           Home
         </HoveredLink>
-        <HoveredLink href="/about" active={pathname === '/about'}>
+        <HoveredLink href="/#about">
           About
         </HoveredLink>
-        <HoveredLink href="/experience" active={pathname === '/experience'}>
+        <HoveredLink href="/#experience">
           Experience
         </HoveredLink>
-        <HoveredLink href="/projects" active={pathname === '/projects'}>
+        <HoveredLink href="/#projects">
           Projects
         </HoveredLink>
-        <HoveredLink href="/contact" active={pathname === '/contact'}>
+        <HoveredLink href="/#contact">
           Contact Me
         </HoveredLink>
       </Menu>
