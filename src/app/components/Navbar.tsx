@@ -2,6 +2,7 @@
 import React from 'react';
 import { HoveredLink, Menu } from './ui/navbar-menu';
 import { cn } from '../lib/utils';
+import ThemeToggle from './theme/ThemeToggle';
 
 export function NavbarDemo() {
   return (
@@ -30,6 +31,7 @@ function Navbar({ className }: { className?: string }) {
         <HoveredLink href="/#contact">
           Contact Me
         </HoveredLink>
+        <ThemeToggle />
       </Menu>
     </div>
   );

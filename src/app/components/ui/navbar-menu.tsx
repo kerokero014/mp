@@ -9,7 +9,7 @@ export const Menu = ({
   children: React.ReactNode;
 }) => {
   return (
-    <nav className="relative flex justify-center gap-3 rounded-full border border-black/10 bg-white/55 px-6 py-3 shadow-lg shadow-black/10 backdrop-blur-xl supports-[backdrop-filter]:bg-white/45 dark:border-white/20 dark:bg-black/35 dark:shadow-black/35 dark:supports-[backdrop-filter]:bg-black/30">
+    <nav className="relative flex items-center justify-center gap-3 rounded-full border border-black/10 bg-white/55 px-6 py-3 shadow-lg shadow-black/10 backdrop-blur-xl supports-[backdrop-filter]:bg-white/45 dark:border-white/20 dark:bg-black/35 dark:shadow-black/35 dark:supports-[backdrop-filter]:bg-black/30">
       {children}
     </nav>
   );
